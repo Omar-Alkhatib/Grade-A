@@ -1,16 +1,16 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 
 
 const Disable = () => {
-    const [name,setname]=useState('')
+    const [name, setname] = useState('')
 
-    const nameHandler =(e)=>{
+    const nameHandler = (e) => {
         setname(e.target.value)
     }
 
-    const disableUser=()=>{
-        axios.put(`http://localhost:5000/admin/disable`,{name})
+    const disableUser = () => {
+        axios.put(`http://localhost:5000/admin/disable`, { name })
         alert('User is BANNED')
     }
     return (

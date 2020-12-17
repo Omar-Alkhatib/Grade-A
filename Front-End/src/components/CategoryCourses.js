@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom';
+const token = localStorage.getItem('token');
 
 const CategoryCourses = (props) => {
 	const { match: { params: { id } } } = props
 	const [category, setCategory] = useState([]);
 	useEffect(() => {
-		axios.get(`http://localhost:5000/students/category_courses/${id}`)
+		axios.get(`http://localhost:5000/students/category_courses/${id}`, { headers: { authorization: token }, })
 			.then((res) => {
 				setCategory(res.data);
 			})
@@ -16,12 +17,12 @@ const CategoryCourses = (props) => {
 	}, [id]);
 	return (
 		<div className='cards'>
-			<div className='tt'>{props.categoryName}</div>
+			<div className='all-cards'>{props.categoryName}</div>
 			{
 				category.map((e, i) => {
 					return <div key={i}>
-						<div className='card_course' key={i}>
-							<Link to={`/courses/${e.id}`}>
+						<div className='card' key={i}>
+							<Link to={`/students/courses/${e.id}`}>
 								<img src={`${e.img_url}`} alt={`${e.name}`} />
 								<h2>{e.name}</h2>
 							</Link>

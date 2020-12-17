@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { RiFilter3Line } from "react-icons/ri";
 const token = localStorage.getItem('token');
 
-const AllCourses = () => {
+const AllCourses = ({ match: { params: { id } } }) => {
 	const history = useHistory();
 	const [allCourses, setAllCourses] = useState([]);
 	const [categories, setCategories] = useState([]);
@@ -14,14 +14,14 @@ const AllCourses = () => {
 	const [toggle, setToggle] = useState(true);
 
 	useEffect(() => {
-		getAllCourses()
+		getAllCoursesByInstructor()
 		getAllCategories()
 		getEnrollmentCourses()
 		getAllInstructors()
 	}, [])
 
-	const getAllCourses = () => {
-		axios.get(`http://localhost:5000/students/allCourses`, { headers: { authorization: token }, })
+	const getAllCoursesByInstructor = () => {
+		axios.get(`http://localhost:5000/students/instructor_courses/${id}`, { headers: { authorization: token }, })
 			.then((response) => {
 				setAllCourses(response.data);
 			})
@@ -60,15 +60,13 @@ const AllCourses = () => {
 			<div className='coursesSide' style={(!toggle) ? { visibility: 'hidden' } : { visibility: 'visible' }}>
 				<div className='dropdown'>
 					<div className='drop-button'>My Courses</div>
-					<div >
+					<div className='dropdown-content'>
 						{
 							enrollmentCourses.map((e, i) => {
 								return (
-									<div>
-										<Link to={`/students/categories/${e.id}`} key={i}>
-											{e.name}
-										</Link>
-									</div>
+									<Link to={`/students/categories/${e.id}`} key={i}>
+										{e.name}
+									</Link>
 								);
 							})
 						}
@@ -76,15 +74,13 @@ const AllCourses = () => {
 				</div>
 				<div className='dropdown'>
 					<div className='drop-button'>Instructors</div>
-					<div  >
+					<div className='dropdown-content'>
 						{
 							allInstructors.map((e, i) => {
 								return (
-									<div>
-										<Link to={`/students/coursesInstructor/${e.instructor_id}`} key={i} >
-											{e.name}
-										</Link>
-									</div>
+									<Link to={`/students/coursesInstructor/${e.instructor_id}`} key={i} >
+										{e.name}
+									</Link>
 								);
 							})
 						}
@@ -92,15 +88,13 @@ const AllCourses = () => {
 				</div>
 				<div className='dropdown'>
 					<div className='drop-button'>Categories</div>
-					<div >
+					<div className='dropdown-content'>
 						{
 							categories.map((e, i) => {
 								return (
-									<div>
-										<Link to={`/students/categories/${e.id}`} key={i}>
-											{e.name}
-										</Link>
-									</div>
+									<Link to={`/students/categories/${e.id}`} key={i}>
+										{e.name}
+									</Link>
 								);
 							})
 						}

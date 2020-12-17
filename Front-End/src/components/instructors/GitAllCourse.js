@@ -1,21 +1,15 @@
-/* eslint-disable */
 import React from "react";
-import CourseItem from "./CourseItem";
 
-export default function GitAllCourse({ courses }) {
-  return courses.map((course) => {
-    return (
-      <div
-        style={{
-          border: " 1px solid black",
-          width: "100%",
-          display: "flex",
-          flexdirection: "column",
-          flexWrap: "wrap",
-        }}
-      >
-        <CourseItem course={course} Key={course.id}></CourseItem>
+export default function CourseItem(props) {
+  return (
+    <div className="courseItemStyle">
+      <img src={props.course.image} alt="Avatar" style={{ width: "100%" }} />
+      <div className="secondDevStyle">
+        <h4>
+          <b>{props.course.name}</b>
+        </h4>
+        <p>{props.course.decription}</p>
       </div>
-    );
-  });
+    </div>
+  );
 }

@@ -145,6 +145,7 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
 
 /*------------------------- Function ----------------------------*/
 
@@ -179,7 +180,7 @@
 .AddCat {
   position: fixed;
   top: 35%;
-  left: 30%;
+  left: 24%;
   border: 1px solid;
   height: 25%;
   width: 50%;
@@ -189,31 +190,71 @@
   justify-content: space-evenly;
   font-family: "Roboto", sans-serif;
   background-color: white;
+
 }
 
 .AddCat h2 {
-  color: red;
+	color: red;
 }
 
 .AddCat input {
-  outline: none;
-  padding: 4px;
+	outline: none;
+	padding: 4px;
 }
 
 .AddCat button {
-  width: 100px;
+	width: 100px;
 }
 
 .AddCat button:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
 
+/*-------------------student details -------------*/
+
+.std-details{
+  border: 1px solid;
+  margin: 20px;
+  font-size: large;
+  background-color: #D7D7D6;
+}
+
+.std-details span{
+  color: red;
+}
+
+.names-ad{
+  margin:60px 0 60px 42%;
+}
 /* ------------ Navbar -----------*/
 * {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+}
+
+.navbar h4 a {
+  color: #767a7a;
+  text-decoration: none;
+}
+
+.navbar h4 a:hover {
+  color: #2896a9;
+}
+
+.sign :link,
+.log :link {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.sign a {
+  color: #ffffff;
+}
+
+.log a {
+  color: #46adcd;
 }
 
 .navbar {
@@ -237,11 +278,16 @@
   cursor: pointer;
 }
 
+.sign,
+.log {
+  outline: none;
+}
+
 /* ------------------- Navbar dropdown list ---------------------------- */
 
 .drop-button {
   background-color: white;
-  color: black;
+  color: #767a7a;
   font-weight: bold;
   padding: 23px;
   font-size: 16px;
@@ -357,26 +403,31 @@
 
 .wlc img {
   height: 400px;
-  position: relative;
+  width: 100%;
 }
 
 .innerTxt {
   color: #54534f;
   font-weight: bolder;
   font-size: 25px;
-  padding: 70px;
-  padding-left: 100px;
 }
 
 .innerTxt h4 {
   margin-top: 20px;
   font-size: 20px;
+  margin-left: 100px;
+}
+
+.innerTxt h1 {
+  padding-left: 100px;
+  margin-top: -330px;
 }
 
 .innerTxt button {
+  margin-left: 100px;
   margin-top: 20px;
   height: 60px;
-  width: 200px;
+  width: 180px;
   font-size: 25px;
   color: #18294d;
   background-color: white;
@@ -389,6 +440,16 @@
   background-color: #18294d;
   color: white;
   cursor: pointer;
+}
+
+.innerTxt button a {
+  text-decoration: none;
+  padding: 15px 17px 15px 15px;
+  color: #54534f;
+}
+
+.innerTxt button a:hover {
+  color: #ffffff;
 }
 
 /* ----------------------------------------------- Goals ----------------------------------------------*/
@@ -462,7 +523,7 @@
   width: 85%;
   margin-left: 7%;
   display: flex;
-  justify-content: space-between;
+
   flex-wrap: wrap;
 }
 
@@ -471,6 +532,8 @@
   margin-right: 2px;
   border: 1px solid silver;
   height: 350px;
+  width: 380px;
+  margin: 12px;
 }
 
 .card:hover {
@@ -496,6 +559,17 @@
 .card_course img {
   height: 180px;
   width: 170px;
+}
+
+.all-cards {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.all-cards a {
+  text-decoration: none;
+  color: #3c3b37;
 }
 
 /* ---------------------------------------------------- Become Instructor -----------------------*/
@@ -819,4 +893,77 @@ input::-webkit-inner-spin-button {
   height: 50vh;
   width: 60%;
   position: relative;
+}
+
+.welcomePage {
+  background-color: rgb(212, 242, 255);
+}
+.welcome {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  margin: 3%;
+}
+
+.wel {
+  height: 10vh;
+  width: 30vh;
+}
+
+.coursesMain {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  margin: 0% 2%;
+}
+
+.coursesSide {
+  background: rgb(245, 240, 240);
+  visibility: visible;
+}
+
+.coursesCards {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 3%;
+}
+
+.countResults {
+  display: inline;
+  float: right;
+  font-size: 2.5vh;
+}
+
+.oneCourse {
+  display: grid;
+  grid-template-columns: 2fr 5fr 1fr;
+  border-bottom: 1px solid silver;
+}
+
+.imgCourse img {
+  display: flex;
+  height: 22vh;
+  width: 70%;
+  margin: 0% 0% 0% 17%;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.oneCourse2 {
+  display: grid;
+  grid-template-rows: auto;
+  padding: 2%;
+}
+ 
+.oneCourse3 {
+  display: grid;
+  grid-template-rows: auto;
+  padding: 10%;
+  margin: 10%;
+}
+
+.filter button {
+  height: 10vh;
+  width: 18vh;
+  margin: 3vh;
+  margin-top: 7vh;
 }
